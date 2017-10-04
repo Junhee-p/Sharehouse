@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+{% block content %}
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+<div class="container"> <div class="row">
+         <div class="col-md-6 col-md-offset-3">
+            <div class="well text-center">
+               <p><small>모임 만들기 정보입력</small></p>
+               <form action="{% url 'test2' %}" method="post">
+                   {% csrf_token %}
+                    <select name="meet_catagory">
+                        <option value="all">전체</option>
+                        <option value="game">게임</option>
+                        <option value="exercise">운동</option>
+                        <option value="study">스터디</option>
+                    </select>
+                   <br/>
+                   <br/>
+                  <div class="form-group">
+                     <input class="form-control" id="meet_title" maxlength="100" name="meet_title" placeholder="모임 제목" type="text" />
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">모임 시작 일시</label>
+                     <input class="form-control" id="meet_time_start" name="meet_time_start" type="datetime-local" />
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">모임 마감 일시</label>
+                     <input class="form-control" id="meet_time_end" name="meet_time_end" placeholder="" type="datetime-local" />
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">접수 시작 일시</label>
+                     <input class="form-control" id="meet_dur_start" name="meet_dur_start" placeholder="" type="datetime-local" />
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">접수 마감 일시</label>
+                     <input class="form-control" id="meet_dur_end" name="meet_dur_end" placeholder="" type="datetime-local" />
+                  </div>
+                  <div class="form-group">
+                     <input class="form-control" id="meet_place" maxlength="100" name="meet_place" placeholder="모임 장소" type="text" />
+                  </div>
+                  <div class="form-group">
+                     <textarea class="form-control" cols="40" id="meet_comment" name="meet_comment" placeholder="comment" rows="10"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-default">만들기</button>
+               </form>
+            </div>
+         </div>
+
+
+      </div>
+</div>
+{% endblock %}
